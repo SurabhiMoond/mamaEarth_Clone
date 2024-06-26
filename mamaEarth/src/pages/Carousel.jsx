@@ -5,24 +5,22 @@ import axios from "axios";
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // Track loading state
+  const [loading, setLoading] = useState(true); 
 
-  // Fetch data using Axios on component mount
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/src//Data/products.json"); // Replace with your JSON file path
-        setProducts(response.data); // Assuming your JSON structure is an array of products
-        setLoading(false); // Update loading state once data is fetched
+        const response = await axios.get("/src//Data/products.json"); 
+        setProducts(response.data); 
+        setLoading(false); 
       } catch (error) {
         console.error("Error fetching data: ", error);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false); 
       }
     };
     fetchData();
   }, []);
 
-  // Ensure products are loaded before rendering visibleProducts
   if (loading) {
     return (
       <Flex justifyContent="center" alignItems="center" height="100vh">
@@ -31,7 +29,6 @@ export const Carousel = () => {
     );
   }
 
-  // Guard against empty products array
   if (!Array.isArray(products) || products.length === 0) {
     return (
       <Flex justifyContent="center" alignItems="center" height="100vh">
@@ -63,7 +60,7 @@ export const Carousel = () => {
           <Box key={index} className="carousel">
             <img
               src={product.image}
-              alt={product.name} // Add alt text for accessibility
+              alt={product.name} 
               style={{ width: "100%", height: "300px" }}
             />
           </Box>
