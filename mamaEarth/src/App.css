@@ -1,0 +1,90 @@
+#root {
+  width: 100%;
+  font-family: sans-serif;
+}
+
+/*----------------------------TopNavLink----------------------------------------*/
+.top-nav-line {
+  background-color: #f04438;
+  color: aliceblue;
+  height: 40px;
+  font-size: x-small;
+  padding: 0 40px 0 40px;
+}
+.top-nav-line-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+}
+.top-nav-line-links > p:hover {
+  text-decoration: underline;
+  color: aliceblue;
+}
+
+/*---------------------SearchBarDIv-------------------------------------------*/
+.header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  width: 100%;
+  /* background-color:; change to suit your design */
+}
+
+.searchBar-main-div {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  justify-content: center;
+}
+.searchBar-main-div .img1 {
+  width: 200px;
+}
+.searchBar-main-div .img2 {
+  width: 180px;
+  height: 50px;
+}
+.cartUserImg p {
+  font-size: 18px;
+  color: rgb(52, 50, 50);
+}
+
+/*---------------Iteams-Link-Div------------------------------------------*/
+.nav-iteam-div{
+    box-shadow: 0px 4px 8px rgba(180, 180, 180, 0.8);
+}
+.nav-iteam {
+   width: 85%;
+  height: 40px;
+  display: flex;
+  /* gap: 150px; */
+  align-items: center;
+  font-size: 16px;
+  color: rgb(52, 50, 50);
+
+}
+.option-details {
+  border-top: 2px solid #00aeef;
+  margin-left: 50px;
+  /* background-color: #f04438; */
+  margin: 0%;
+}
+.nav-item {
+  margin: auto;
+}
+/*------------Carousle------------------------*/
+.carousel{
+  width: 330px;
+  height: 550px;
+  border:1px solid #00aeef;
+}
+@media (max-width: 600px) {
+  .searchBar-main-div {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .search-input-dev {
+    width: 100%;
+  }
+}
