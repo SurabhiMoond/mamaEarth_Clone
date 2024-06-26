@@ -1,0 +1,31 @@
+:root {
+  font-family: sans-serif;
+  font-synthesis: none;
+}
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.allBtn {
+
+  border: 1px solid transparent;
+  font-family: inherit;
+  cursor: pointer;
+  color: aliceblue;
+  background-color: #00aeef;
+  transition: border-color 0.25s;
+}
+.allBtn:hover {
+  border-color: #00aeef;
+  color: #00aeef;
+  background-color: aliceblue;
+}
+.allBtn:focus,
+.allBtn:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
