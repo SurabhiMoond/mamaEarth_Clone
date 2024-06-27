@@ -5,17 +5,17 @@ import axios from "axios";
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/src//Data/products.json"); 
-        setProducts(response.data); 
-        setLoading(false); 
+        const response = await axios.get("/src//Data/products.json");
+        setProducts(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data: ", error);
-        setLoading(false); 
+        setLoading(false);
       }
     };
     fetchData();
@@ -60,9 +60,10 @@ export const Carousel = () => {
           <Box key={index} className="carousel">
             <img
               src={product.image}
-              alt={product.name} 
+              alt={product.name}
               style={{ width: "100%", height: "300px" }}
             />
+            <h1>{product.name}</h1>
           </Box>
         ))}
       </Grid>

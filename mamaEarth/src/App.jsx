@@ -1,11 +1,8 @@
-import { Link } from 'react-router-dom';
-import './App.css'
+import { Link } from "react-router-dom";
+import "./App.css";
 import { CgProfile } from "react-icons/cg";
-import { SearchBar } from './component/SearchBar';
-import { Home } from './pages/Home';
-import { Footer } from './pages/Footer';
+import { SearchBar } from "./component/SearchBar";
 function App() {
-
   return (
     <>
       <div className="top-nav-line">
@@ -15,12 +12,9 @@ function App() {
           <CgProfile />
         </Link>
       </div>
-      <SearchBar/>
-     <Home/>
-     {/* <Footer/> */}
-     
+      <SearchBar />
     </>
   );
 }
 
-export default App
+export default App;

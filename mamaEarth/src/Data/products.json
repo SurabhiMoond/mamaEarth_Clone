@@ -15,20 +15,6 @@
   },
 
   {
-    "id": 2,
-     "name": "Ubtan Face Wash with Turmeric & Saffron for Tan Removal",
-    "image":
-      "https://images.mamaearth.in/catalog/product/1/-/1-wid-ingredients.jpg?format=auto&width=400&height=400",
-     "shortDesc": "Removes Tan | Repairs Sun Damage | Brightens Skin",
-     "price": "299",
-     "rating": 4.2,
-     "reviews": 700,
-     "sellerTag": "BEST SELLER",
-     "category": "Face",
-     "description":
-      "Pamper your skin with the age-old tradition of Ubtan and let your dull, tanned skin rejuvenate and feel fresh & bright. Undo the effects of tan, pollution, dirt, harmful UV rays, and harsh weather conditions with Mamaearth Ubtan Face Wash.Crafted to give you glowing skin, our Ubtan Face Wash is enriched with the natural goodness of Turmeric and Saffron. Antioxidants in Turmeric protect skin from free radical damage. It’s also traditionally known to fight sun tan and brighten skin tone. Carrot Seed Oil and Saffron clear spots and help in tan removal. Walnut Beads in Ubtan Face Wash help gently exfoliate and reduce tan while brightening the skin."
-  },
-  {
     "id": 3,
      "name": "Onion Hair Oil for Hair Regrowth and Hair Fall Control ",
    "image":
@@ -65,6 +51,20 @@
      "rating": 4.7,
      "reviews": 237,
      "price": "599",
+     "sellerTag": "BEST SELLER",
+     "category": "Face",
+     "description":
+      "Pamper your skin with the age-old tradition of Ubtan and let your dull, tanned skin rejuvenate and feel fresh & bright. Undo the effects of tan, pollution, dirt, harmful UV rays, and harsh weather conditions with Mamaearth Ubtan Face Wash.Crafted to give you glowing skin, our Ubtan Face Wash is enriched with the natural goodness of Turmeric and Saffron. Antioxidants in Turmeric protect skin from free radical damage. It’s also traditionally known to fight sun tan and brighten skin tone. Carrot Seed Oil and Saffron clear spots and help in tan removal. Walnut Beads in Ubtan Face Wash help gently exfoliate and reduce tan while brightening the skin."
+  },
+   {
+    "id": 2,
+     "name": "Ubtan Face Wash with Turmeric & Saffron for Tan Removal",
+    "image":
+      "https://images.mamaearth.in/catalog/product/1/-/1-wid-ingredients.jpg?format=auto&width=400&height=400",
+     "shortDesc": "Removes Tan | Repairs Sun Damage | Brightens Skin",
+     "price": "299",
+     "rating": 4.2,
+     "reviews": 700,
      "sellerTag": "BEST SELLER",
      "category": "Face",
      "description":

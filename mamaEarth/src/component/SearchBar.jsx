@@ -2,7 +2,7 @@ import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa6";
- import { LiaSearchSolid } from "react-icons/lia";
+import { LiaSearchSolid } from "react-icons/lia";
 import { NavIteam } from "./NavIteam";
 export const SearchBar = () => {
   return (
@@ -27,8 +27,8 @@ export const SearchBar = () => {
               display: "flex",
               alignItems: "center",
               padding: "8px",
-              borderTopLeftRadius:'4px',
-              borderBottomLeftRadius:'4px',
+              borderTopLeftRadius: "4px",
+              borderBottomLeftRadius: "4px",
               width: "500px",
             }}
           >
@@ -74,6 +74,5 @@ export const SearchBar = () => {
       <hr />
       <NavIteam />
     </div>
-
   );
 };

@@ -28,7 +28,6 @@
   top: 0;
   background-color: #ffffff;
   width: 100%;
-  /* background-color:; change to suit your design */
 }
 
 .searchBar-main-div {
@@ -51,27 +50,40 @@
 }
 
 /*---------------Iteams-Link-Div------------------------------------------*/
-.nav-iteam-div{
-    box-shadow: 0px 4px 8px rgba(180, 180, 180, 0.8);
+.nav-item-div {
+  box-shadow: 0px 4px 8px rgba(180, 180, 180, 0.8);
 }
+
 .nav-iteam {
-   width: 85%;
   height: 40px;
   display: flex;
-  /* gap: 150px; */
   align-items: center;
-  font-size: 16px;
+  font-size: 15px;
   color: rgb(52, 50, 50);
-
+  justify-content: center;
+  gap: 50px;
 }
+
+.nav-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-item a.active {
+  color: #00aeef;
+}
+
 .option-details {
   border-top: 2px solid #00aeef;
-  margin-left: 50px;
-  /* background-color: #f04438; */
-  margin: 0%;
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.nav-item {
-  margin: auto;
+
+.nav-item:hover .option-details {
+  display: block;
 }
 /*------------Carousle------------------------*/
 .carousel{
@@ -79,6 +91,29 @@
   height: 550px;
   border:1px solid #00aeef;
 }
+/*---------DashBoard----------------*/
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.user-management, .product-management, .order-management, .reports-analytics {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 @media (max-width: 600px) {
   .searchBar-main-div {
     flex-direction: column;
