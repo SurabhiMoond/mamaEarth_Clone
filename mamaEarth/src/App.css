@@ -73,16 +73,26 @@
   color: #00aeef;
 }
 
-.option-details {
+.cardItemDiv {
   border-top: 2px solid #00aeef;
-  display: none;
+  /* display: none; */
   position: absolute;
   background-color: white;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  display: flex;
+  gap: 15px;
 
-.nav-item:hover .option-details {
+}
+.secondItemList{
+padding: 0px 10px 0px 10px;
+border-left: 1px solid rgb(235, 235, 235);
+border-right: 1px solid rgb(235, 235, 235);
+}
+.thirdItemList{
+  color: #00aeef;
+}
+.nav-item:hover{
   display: block;
 }
 /*------------Carousle------------------------*/
