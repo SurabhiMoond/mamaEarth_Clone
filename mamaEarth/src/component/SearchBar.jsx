@@ -1,10 +1,15 @@
-import React from "react";
+import { useContext } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa6";
 import { LiaSearchSolid } from "react-icons/lia";
 import { NavIteam } from "./NavIteam";
+import { Login } from "../pages/Login";
+import { Link } from "react-router-dom";
 export const SearchBar = () => {
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
   return (
     <div className="header">
       <div className="searchBar-main-div">
@@ -35,12 +40,15 @@ export const SearchBar = () => {
             <LiaSearchSolid />
             &nbsp;
             <input
+              style={{ width: "500px", fontSize: "19px" }}
               type="text"
               id="searchBar-input"
-              placeholder="Search For FaceSerum"
+              placeholder="Search.................."
+              onChange={handleSearchChange}
             />
           </div>
           <button
+            id="searchBtn"
             className="allBtn"
             style={{
               width: "140px",
@@ -66,8 +74,10 @@ export const SearchBar = () => {
             <p>Cart</p>
           </div>
           <div style={{ display: "flex" }}>
-            <FaRegUser style={{ color: "#00aeef", fontSize: "24px" }} /> &nbsp;
-            <p>Login</p>
+            <Link to="/login" element={<Login />}>
+              <FaRegUser style={{ color: "#00aeef", fontSize: "24px" }} />
+              {""}
+            </Link>
           </div>
         </div>
       </div>

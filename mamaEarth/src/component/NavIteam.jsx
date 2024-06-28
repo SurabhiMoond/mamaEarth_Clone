@@ -1,26 +1,19 @@
 import { useState } from "react";
-import { NavLink, Route, Routes } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { Face } from "../pages/Face";
-import { Hair } from "../pages/Hair";
-import { Makeup } from "../pages/Makeup";
-import { Body } from "../pages/Body";
-import { Combo } from "../pages/Combo";
-import { NewLaunch } from "../pages/NewLaunch";
-import { StoreLocator } from "../pages/StoreLocator";
+import { NavLink} from "react-router-dom";
+
 
 export const NavIteam = () => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const links = [
-    { to: "/", label: "HOME", element: <Home /> },
-    { to: "/face", label: "FACE", element: <Face /> },
-    { to: "/hair", label: "HAIR", element: <Hair /> },
-    { to: "/makeup", label: "MAKEUP", element: <Makeup /> },
-    { to: "/body", label: "BODY", element: <Body /> },
-    { to: "/combo", label: "COMBO", element: <Combo /> },
-    { to: "/newlaunch", label: "NEW LAUNCH", element: <NewLaunch /> },
-    { to: "/storelocator", label: "STORE LOCATOR", element: <StoreLocator /> },
+    { to: "/", label: "HOME"},
+    { to: "/face", label: "FACE"},
+    { to: "/hair", label: "HAIR"},
+    { to: "/makeup", label: "MAKEUP"},
+    { to: "/body", label: "BODY"},
+    { to: "/combo", label: "COMBO"},
+    { to: "/newlaunch", label: "NEW LAUNCH"},
+    { to: "/storelocator", label: "STORE LOCATOR"},
   ];
 
   const handleOptionHover = (option) => {
@@ -192,11 +185,7 @@ export const NavIteam = () => {
         </div>
       </div>
 
-      <Routes>
-        {links.map((link, index) => (
-          <Route key={index} path={link.to} element={link.element} />
-        ))}
-      </Routes>
+    
     </>
   );
 };

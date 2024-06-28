@@ -1,11 +1,11 @@
-import React from 'react'
 import { Carousel } from './Carousel';
+import { HomePage } from './HomePage';
 
 export const Home = () => {
   return (
     <div>
       <img
-        src="https://st-images.honasa.in/web_07b15c5382.jpg?format=auto&width=&qualilty="
+        src="https://st-images.honasa.in/web_wt_221275a10a.jpg?format=auto&width=&qualilty="
         alt=""
       />
       <div>
@@ -17,6 +17,7 @@ export const Home = () => {
         </p>
       </div>
       <Carousel />
+      <HomePage />
     </div>
   );
 }
