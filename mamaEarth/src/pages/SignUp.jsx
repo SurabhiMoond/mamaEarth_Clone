@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { jsonUrls } from "../allJsonUrl/jsonUrls";
+import { Button } from "@chakra-ui/react";
 
 export const Signup = () => {
   const [name, setName] = useState("");
@@ -9,6 +10,7 @@ export const Signup = () => {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
+  const [close, setClose] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -45,6 +47,11 @@ export const Signup = () => {
     <div
       style={{ width: "400px", height: "600px", backgroundColor: "#f0f0ef" }}
     >
+      {close && (
+        <Link to="/">
+          <p onClick={() => setClose(false)}> X </p>
+        </Link>
+      )}
       <h2>Signup for the Goodness Inside</h2>
       {errorMessage && <div className="error">{errorMessage}</div>}
       <form onSubmit={handleSubmit}>

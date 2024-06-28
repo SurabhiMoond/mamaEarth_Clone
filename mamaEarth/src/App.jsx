@@ -3,6 +3,7 @@ import "./App.css";
 import { CgProfile } from "react-icons/cg";
 import { SearchBar } from "./component/SearchBar";
 import { AllRoutes } from "./allRoutes/AllRoutes";
+import { SearchProvider } from "./context/searchContext";
 function App() {
   return (
     <>
@@ -13,8 +14,10 @@ function App() {
           <CgProfile />
         </Link>
       </div>
-      <SearchBar />
-      <AllRoutes />
+      <SearchProvider>
+        <SearchBar />
+        <AllRoutes />
+      </SearchProvider>
     </>
   );
 }

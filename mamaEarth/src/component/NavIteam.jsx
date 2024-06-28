@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { NavLink} from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
+import { useFetchData } from "../customHook/useFatchData";
+import { jsonUrls } from "../allJsonUrl/jsonUrls";
 
 
 export const NavIteam = () => {
   const [selectedOption, setSelectedOption] = useState(null);
-
+  
   const links = [
     { to: "/", label: "HOME"},
     { to: "/face", label: "FACE"},
@@ -50,7 +52,7 @@ export const NavIteam = () => {
                         >
                           Explore
                         </p>
-                        <p>New Launches</p>
+                        <Link to={'/face-new-launch'}><p>New Launches</p></Link>
                         <p>Best Sellers</p>
                         <p>Gift Packs</p>
                       </div>
@@ -184,8 +186,6 @@ export const NavIteam = () => {
           ))}
         </div>
       </div>
-
-    
     </>
   );
 };
