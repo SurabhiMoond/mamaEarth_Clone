@@ -3,12 +3,10 @@ import { useFetchData } from "../customHook/useFatchData";
 import { jsonUrls } from "../allJsonUrl/jsonUrls";
 
 export const Body = () => {
-  const {
-    data: products,
-    loading,
-    error,
-  } = useFetchData(jsonUrls.products);
-
+  const { data: products, loading, error } = useFetchData(jsonUrls.products);
+  const bodyProducts = products.filter(
+    (product) => product.category === "Body"
+  );
   if (loading) {
     return (
       <Flex justifyContent="center" alignItems="center" height="100vh">
@@ -36,7 +34,7 @@ export const Body = () => {
   return (
     <div>
       <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
-        {products.map((product, index) => (
+        {bodyProducts.map((product, index) => (
           <Box key={index} className="product-card">
             <img
               src={product.image}

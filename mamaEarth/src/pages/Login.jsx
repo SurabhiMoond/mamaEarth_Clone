@@ -20,7 +20,7 @@ export const Login = () => {
           if (user.role === "admin") {
             console.log("Admin login!", user);
             localStorage.setItem("loggedInAdmin", JSON.stringify(user));
-            navigate("/body");
+            navigate("/dash");
           } else {
             console.log("Login successful!", user);
             localStorage.setItem("loggedInUser", JSON.stringify(user));
@@ -36,7 +36,6 @@ export const Login = () => {
             <Link to="/sign" style={{ color: "#00aeef" }}>
               sign up
             </Link>
-            .
           </div>
         );
       }

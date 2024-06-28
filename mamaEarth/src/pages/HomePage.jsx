@@ -1,6 +1,8 @@
 import { Box, Button, Flex, Grid, Heading } from "@chakra-ui/react";
 import { useFetchData } from "../customHook/useFatchData";
 import { jsonUrls } from "../allJsonUrl/jsonUrls";
+import { useContext } from "react";
+import { SearchContext } from "../context/searchContext";
 
 export const HomePage = () => {
   const {
@@ -8,7 +10,8 @@ export const HomePage = () => {
     loading: productsLoading,
     error: productsError,
   } = useFetchData(jsonUrls.products);
-
+  
+  const { searchResults } = useContext(SearchContext);
   const loading = productsLoading;
   const error = productsError;
 
@@ -27,18 +30,21 @@ export const HomePage = () => {
       </Flex>
     );
   }
-  const skinCareProducts = products.filter((product) =>
-    product.category.includes("Skin")
-  );
-  const faceCareProducts = products.filter((product) =>
-    product.category.includes("Face")
-  );
-  const hairCareProducts = products.filter((product) =>
-    product.category.includes("Hair")
-  );
-  const bodyCareProducts = products.filter((product) =>
-    product.category.includes("Body")
-  );
+const skinCareProducts = products.filter(
+  (product) => product.category && product.category.includes("Skin")
+);
+
+const faceCareProducts = products.filter(
+  (product) => product.category && product.category.includes("Face")
+);
+
+const hairCareProducts = products.filter(
+  (product) => product.category && product.category.includes("Hair")
+);
+
+const bodyCareProducts = products.filter(
+  (product) => product.category && product.category.includes("Body")
+);
 
   const bestSellers = products.filter(
     (product) => product.sellerTag === "BEST SELLER"
@@ -52,6 +58,22 @@ export const HomePage = () => {
 
   return (
     <div>
+      {/*Search Items*/}
+      <Heading as="h2" mb="4">
+        Search Products result
+      </Heading>
+      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
+        {searchResults.map((product) => (
+          <Box key={product.id} className="product-card">
+            <img
+              src={product.image}
+              alt={product.name}
+              style={{ width: "100%", height: "300px" }}
+            />
+            <h3>{product.name}</h3>
+          </Box>
+        ))}
+      </Grid>
       {/* Skin Care Products */}
       <Heading as="h2" mb="4">
         Skin Care Products

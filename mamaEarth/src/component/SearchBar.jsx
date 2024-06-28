@@ -6,9 +6,16 @@ import { LiaSearchSolid } from "react-icons/lia";
 import { NavIteam } from "./NavIteam";
 import { Login } from "../pages/Login";
 import { Link } from "react-router-dom";
+import { SearchContext } from "../context/searchContext";
 export const SearchBar = () => {
+  const { searchTerm, setSearchTerm,handleSearch } = useContext(SearchContext);
+
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
+  };
+
+  const handleSearchSubmit = () => {
+    handleSearch(searchTerm, products); 
   };
   return (
     <div className="header">
@@ -42,6 +49,7 @@ export const SearchBar = () => {
             <input
               style={{ width: "500px", fontSize: "19px" }}
               type="text"
+              value={searchTerm}
               id="searchBar-input"
               placeholder="Search.................."
               onChange={handleSearchChange}
@@ -50,6 +58,7 @@ export const SearchBar = () => {
           <button
             id="searchBtn"
             className="allBtn"
+            onClick={handleSearchSubmit}
             style={{
               width: "140px",
               padding: "8px",
