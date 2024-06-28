@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { CgProfile } from "react-icons/cg";
 import { SearchBar } from "./component/SearchBar";
+import { AllRoutes } from "./allRoutes/AllRoutes";
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
         </Link>
       </div>
       <SearchBar />
+      <AllRoutes />
     </>
   );
 }

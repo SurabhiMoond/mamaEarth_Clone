@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Box, Button, Flex, Grid } from "@chakra-ui/react";
 import axios from "axios";
+import { jsonUrls } from "../allJsonUrl/jsonUrls";
 
 export const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,7 +11,7 @@ export const Carousel = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("/src/Data/products.json");
+        const response = await axios.get(jsonUrls.products);
         setProducts(response.data);
         setLoading(false);
       } catch (error) {
