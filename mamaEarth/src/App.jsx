@@ -22,7 +22,7 @@ function App() {
       </div>
       <SearchBar />
       {isSearching ? <SearchResult /> : <AllRoutes />}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }
