@@ -5,6 +5,8 @@
 :root {
   font-family: sans-serif;
   font-synthesis: none;
+  min-width: 320px;
+  min-height: 100vh;
 }
 body {
   margin: 0;
@@ -12,17 +14,18 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
-
 .allBtn {
-
   border: 1px solid transparent;
   font-family: inherit;
   cursor: pointer;
   color: aliceblue;
   background-color: #00aeef;
   transition: border-color 0.25s;
+  width: 100%;
+   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 .allBtn:hover {
+  width: 100%;
   border-color: #00aeef;
   color: #00aeef;
   background-color: aliceblue;
