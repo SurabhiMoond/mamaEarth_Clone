@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { jsonUrls } from "../allJsonUrl/jsonUrls";
+import { Box, Button, Flex, FormControl, FormLabel, Heading, Input, Text } from "@chakra-ui/react";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -46,33 +47,49 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <div className="error">{errorMessage}</div>}
-    </div>
+    <Flex height="80vh" alignItems="center" justifyContent="center">
+      <Box
+        p={8}
+        maxWidth="500px"
+        borderWidth={1}
+        borderRadius={8}
+        boxShadow="lg"
+      >
+        <Heading
+          mb={6}
+          fontSize="28px"
+          textAlign="center"
+          color="#94c642"
+        >
+          Login
+        </Heading>
+        <form onSubmit={handleSubmit}>
+          <FormControl isRequired mb={4}>
+            <FormLabel htmlFor="email">Email </FormLabel>
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </FormControl>
+          <FormControl isRequired mb={6}>
+            <FormLabel htmlFor="password">Password </FormLabel>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </FormControl>
+          <Button type="submit" color="#94c642" width="full" className="allBtn">
+            Login
+          </Button>
+        </form>
+        {errorMessage && (
+          <Text color="red.500" mt={4} textAlign="center">
+            {errorMessage}
+          </Text>
+        )}
+      </Box>
+    </Flex>
   );
 };

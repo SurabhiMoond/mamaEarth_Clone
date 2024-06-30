@@ -1,8 +1,12 @@
-import { Box, Button, Flex, Grid, Heading } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { useFetchData } from "../customHook/useFatchData";
 import { jsonUrls } from "../allJsonUrl/jsonUrls";
+import { CartContext } from "../context/CartContext";
 import { useContext } from "react";
-import { SearchContext } from "../context/searchContext";
+import { VscVerifiedFilled } from "react-icons/vsc";
+import { IoIosStar } from "react-icons/io";
+import { FaIndianRupeeSign } from "react-icons/fa6";
+import { FaTags } from "react-icons/fa6";
 
 export const HomePage = () => {
   const {
@@ -10,8 +14,8 @@ export const HomePage = () => {
     loading: productsLoading,
     error: productsError,
   } = useFetchData(jsonUrls.products);
-  
-  const { searchResults } = useContext(SearchContext);
+
+  const { addToCart } = useContext(CartContext);
   const loading = productsLoading;
   const error = productsError;
 
@@ -30,21 +34,21 @@ export const HomePage = () => {
       </Flex>
     );
   }
-const skinCareProducts = products.filter(
-  (product) => product.category && product.category.includes("Skin")
-);
+  const skinCareProducts = products.filter(
+    (product) => product.category && product.category.includes("Skin")
+  );
 
-const faceCareProducts = products.filter(
-  (product) => product.category && product.category.includes("Face")
-);
+  const faceCareProducts = products.filter(
+    (product) => product.category && product.category.includes("Face")
+  );
 
-const hairCareProducts = products.filter(
-  (product) => product.category && product.category.includes("Hair")
-);
+  const hairCareProducts = products.filter(
+    (product) => product.category && product.category.includes("Hair")
+  );
 
-const bodyCareProducts = products.filter(
-  (product) => product.category && product.category.includes("Body")
-);
+  const bodyCareProducts = products.filter(
+    (product) => product.category && product.category.includes("Body")
+  );
 
   const bestSellers = products.filter(
     (product) => product.sellerTag === "BEST SELLER"
@@ -57,140 +61,353 @@ const bodyCareProducts = products.filter(
   );
 
   return (
-    <div>
-      {/*Search Items*/}
-      <Heading as="h2" mb="4">
-        Search Products result
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
-        {searchResults.map((product) => (
-          <Box key={product.id} className="product-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              style={{ width: "100%", height: "300px" }}
-            />
-            <h3>{product.name}</h3>
-          </Box>
-        ))}
-      </Grid>
+    <div className="home-product-div">
       {/* Skin Care Products */}
-      <Heading as="h2" mb="4">
-        Skin Care Products
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
+      <div className="product-title-div">
+        <Heading as="h4" mb="4">
+          Skin Care Products
+        </Heading>
+        <p>
+          Explore 100% toxin-free and safe skincare products by Mamaearth that
+          are formulated with love and the goodness of natural ingredients
+        </p>
+      </div>
+      <Grid
+        templateColumns="repeat(4, 1fr)"
+        gap="30px"
+        width={"80%"}
+        mt={"0"}
+        marginLeft={"8%"}
+      >
         {skinCareProducts.map((product) => (
           <Box key={product.id} className="product-card">
+            <div
+              className="tag-div"
+              style={{
+                backgroundColor:
+                  product.sellerTag === "MUST TRY"
+                    ? "#80c342"
+                    : product.sellerTag === "NEW LAUNCH"
+                    ? "#9f7aea"
+                    : "#fd8f29",
+              }}
+            >
+              <FaTags /> <p>{product.sellerTag}</p>
+            </div>
             <img
               src={product.image}
               alt={product.name}
               style={{ width: "100%", height: "300px" }}
             />
-            <h3>{product.name}</h3>
+
+            <div className="card-textarea-mainDiv">
+              <div className="card-text-area">
+                <Text ml="1" fontSize="sm">
+                  <Flex gap={3} className="rating-review-icon-div">
+                    <div className="rating-review-icon">
+                      <IoIosStar className="star-div" />
+                      <p>{product.rating}</p>
+                    </div>
+                    <div className="rating-review-icon">
+                      <VscVerifiedFilled color="#00aeef" />
+                      <p>{product.reviews} Reviews</p>
+                    </div>
+                  </Flex>
+                </Text>
+                <div className="product-name-styl">
+                  <h1>{product.name}</h1>
+                  <p> {product.shortDesc}</p>
+                </div>
+
+                <Flex justifyContent={"center"} alignItems={"center"}>
+                  <FaIndianRupeeSign fontSize={"20px"} />
+                  {product.price}
+                </Flex>
+              </div>
+            </div>
+            <Button onClick={() => addToCart(product)} className="allBtn">
+              Add to Cart
+            </Button>
           </Box>
         ))}
       </Grid>
 
       {/* Face Care Products */}
-      <Heading as="h2" mb="4">
-        Face Care Products
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
+      <div className="product-title-div">
+        <Heading as="h4" mb="4">
+          Face Care Products
+        </Heading>
+        <p>
+          Explore 100% toxin-free and safe Face products, formulated with the
+          goodness of natural ingredients and no harmful chemicals.
+        </p>
+      </div>
+      <Grid
+        templateColumns="repeat(4, 1fr)"
+        gap="30px"
+        width={"80%"}
+        mt={"0"}
+        marginLeft={"8%"}
+      >
         {faceCareProducts.map((product) => (
           <Box key={product.id} className="product-card">
+            <div
+              className="tag-div"
+              style={{
+                backgroundColor:
+                  product.sellerTag === "MUST TRY"
+                    ? "#80c342"
+                    : product.sellerTag === "NEW LAUNCH"
+                    ? "#9f7aea"
+                    : "#fd8f29",
+              }}
+            >
+              <FaTags /> <p>{product.sellerTag}</p>
+            </div>
             <img
               src={product.image}
               alt={product.name}
               style={{ width: "100%", height: "300px" }}
             />
-            <h3>{product.name}</h3>
+
+            <div className="card-textarea-mainDiv">
+              <div className="card-text-area">
+                <Text ml="1" fontSize="sm">
+                  <Flex gap={3} className="rating-review-icon-div">
+                    <div className="rating-review-icon">
+                      <IoIosStar className="star-div" />
+                      <p>{product.rating}</p>
+                    </div>
+                    <div className="rating-review-icon">
+                      <VscVerifiedFilled color="#00aeef" />
+                      <p>{product.reviews} Reviews</p>
+                    </div>
+                  </Flex>
+                </Text>
+                <div className="product-name-styl">
+                  <h1>{product.name}</h1>
+                  <p> {product.shortDesc}</p>
+                </div>
+
+                <Flex justifyContent={"center"} alignItems={"center"}>
+                  <FaIndianRupeeSign fontSize={"20px"} />
+                  {product.price}
+                </Flex>
+              </div>
+            </div>
+            <Button onClick={() => addToCart(product)} className="allBtn">
+              Add to Cart
+            </Button>
           </Box>
         ))}
       </Grid>
 
       {/* Hair Care Products */}
-      <Heading as="h2" mb="4">
-        Hair Care Products
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
+      <div className="product-title-div">
+        <Heading as="h4" mb="4">
+          Hair Care Products
+        </Heading>
+        <p>
+          Explore 100% toxin-free and safe Hair products, formulated with the
+          goodness of natural ingredients and no harmful chemicals.
+        </p>
+      </div>
+      <Grid
+        templateColumns="repeat(4, 1fr)"
+        gap="30px"
+        width={"80%"}
+        mt={"0"}
+        marginLeft={"8%"}
+      >
         {hairCareProducts.map((product) => (
-          <>
-            <Box key={product.id} className="product-card">
-              <img
-                src={product.image}
-                alt={product.name}
-                style={{ width: "100%", height: "300px" }}
-              />
-              <h3>{product.name}</h3>
-            </Box>
-          </>
+          <Box key={product.id} className="product-card">
+            <div
+              className="tag-div"
+              style={{
+                backgroundColor:
+                  product.sellerTag === "MUST TRY"
+                    ? "#80c342"
+                    : product.sellerTag === "NEW LAUNCH"
+                    ? "#9f7aea"
+                    : "#fd8f29",
+              }}
+            >
+              <FaTags /> <p>{product.sellerTag}</p>
+            </div>
+            <img
+              src={product.image}
+              alt={product.name}
+              style={{ width: "100%", height: "300px" }}
+            />
+
+            <div className="card-textarea-mainDiv">
+              <div className="card-text-area">
+                <Text ml="1" fontSize="sm">
+                  <Flex gap={3} className="rating-review-icon-div">
+                    <div className="rating-review-icon">
+                      <IoIosStar className="star-div" />
+                      <p>{product.rating}</p>
+                    </div>
+                    <div className="rating-review-icon">
+                      <VscVerifiedFilled color="#00aeef" />
+                      <p>{product.reviews} Reviews</p>
+                    </div>
+                  </Flex>
+                </Text>
+                <div className="product-name-styl">
+                  <h1>{product.name}</h1>
+                  <p> {product.shortDesc}</p>
+                </div>
+
+                <Flex justifyContent={"center"} alignItems={"center"}>
+                  <FaIndianRupeeSign fontSize={"20px"} />
+                  {product.price}
+                </Flex>
+              </div>
+            </div>
+            <Button onClick={() => addToCart(product)} className="allBtn">
+              Add to Cart
+            </Button>
+          </Box>
         ))}
       </Grid>
 
       {/* Body Care Products */}
-      <Heading as="h2" mb="4">
-        Body Care Products
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
+      <div className="product-title-div">
+        <Heading as="h4" mb="4">
+          Body Care Products
+        </Heading>
+        <p>
+          Explore 100% toxin-free and safe Body products, formulated with the
+          goodness of natural ingredients and no harmful chemicals.
+        </p>
+      </div>
+      <Grid
+        templateColumns="repeat(4, 1fr)"
+        gap="30px"
+        width={"80%"}
+        mt={"0"}
+        marginLeft={"8%"}
+      >
         {bodyCareProducts.map((product) => (
           <Box key={product.id} className="product-card">
+            <div
+              className="tag-div"
+              style={{
+                backgroundColor:
+                  product.sellerTag === "MUST TRY"
+                    ? "#80c342"
+                    : product.sellerTag === "NEW LAUNCH"
+                    ? "#9f7aea"
+                    : "#fd8f29",
+              }}
+            >
+              <FaTags /> <p>{product.sellerTag}</p>
+            </div>
             <img
               src={product.image}
               alt={product.name}
               style={{ width: "100%", height: "300px" }}
             />
-            <h3>{product.name}</h3>
-          </Box>
-        ))}
-      </Grid>
 
-      {/* Best Sellers */}
-      <Heading as="h2" mb="4">
-        Best Sellers
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
-        {bestSellers.map((product) => (
-          <Box key={product.id} className="product-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              style={{ width: "100%", height: "300px" }}
-            />
-            <h3>{product.name}</h3>
-          </Box>
-        ))}
-      </Grid>
+            <div className="card-textarea-mainDiv">
+              <div className="card-text-area">
+                <Text ml="1" fontSize="sm">
+                  <Flex gap={3} className="rating-review-icon-div">
+                    <div className="rating-review-icon">
+                      <IoIosStar className="star-div" />
+                      <p>{product.rating}</p>
+                    </div>
+                    <div className="rating-review-icon">
+                      <VscVerifiedFilled color="#00aeef" />
+                      <p>{product.reviews} Reviews</p>
+                    </div>
+                  </Flex>
+                </Text>
+                <div className="product-name-styl">
+                  <h1>{product.name}</h1>
+                  <p> {product.shortDesc}</p>
+                </div>
 
-      {/* New Launches */}
-      <Heading as="h2" mb="4">
-        New Launches
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
-        {newLaunches.map((product) => (
-          <Box key={product.id} className="product-card">
-            <img
-              src={product.image}
-              alt={product.name}
-              style={{ width: "100%", height: "300px" }}
-            />
-            <h3>{product.name}</h3>
+                <Flex justifyContent={"center"} alignItems={"center"}>
+                  <FaIndianRupeeSign fontSize={"20px"} />
+                  {product.price}
+                </Flex>
+              </div>
+            </div>
+            <Button onClick={() => addToCart(product)} className="allBtn">
+              Add to Cart
+            </Button>
           </Box>
         ))}
       </Grid>
 
       {/* Must Try Products */}
-      <Heading as="h2" mb="4">
-        Must Try Products
-      </Heading>
-      <Grid templateColumns="repeat(4, 1fr)" gap="30px" p="30px">
+      <div className="product-title-div">
+        <Heading as="h4" mb="4">
+          Must Try
+        </Heading>
+        <p>
+          Explore 100% toxin-free and safe products, formulated with the
+          goodness of natural ingredients and no harmful chemicals.
+        </p>
+      </div>
+      <Grid
+        templateColumns="repeat(4, 1fr)"
+        gap="30px"
+        width={"80%"}
+        mt={"0"}
+        marginLeft={"8%"}
+      >
         {mustTries.map((product) => (
           <Box key={product.id} className="product-card">
+            <div
+              className="tag-div"
+              style={{
+                backgroundColor:
+                  product.sellerTag === "MUST TRY"
+                    ? "#80c342"
+                    : product.sellerTag === "NEW LAUNCH"
+                    ? "#9f7aea"
+                    : "#fd8f29",
+              }}
+            >
+              <FaTags /> <p>{product.sellerTag}</p>
+            </div>
             <img
               src={product.image}
               alt={product.name}
               style={{ width: "100%", height: "300px" }}
             />
-            <h3>{product.name}</h3>
+
+            <div className="card-textarea-mainDiv">
+              <div className="card-text-area">
+                <Text ml="1" fontSize="sm">
+                  <Flex gap={3} className="rating-review-icon-div">
+                    <div className="rating-review-icon">
+                      <IoIosStar className="star-div" />
+                      <p>{product.rating}</p>
+                    </div>
+                    <div className="rating-review-icon">
+                      <VscVerifiedFilled color="#00aeef" />
+                      <p>{product.reviews} Reviews</p>
+                    </div>
+                  </Flex>
+                </Text>
+                <div className="product-name-styl">
+                  <h1>{product.name}</h1>
+                  <p> {product.shortDesc}</p>
+                </div>
+
+                <Flex justifyContent={"center"} alignItems={"center"}>
+                  <FaIndianRupeeSign fontSize={"20px"} />
+                  {product.price}
+                </Flex>
+              </div>
+            </div>
+            <Button onClick={() => addToCart(product)} className="allBtn">
+              Add to Cart
+            </Button>
           </Box>
         ))}
       </Grid>

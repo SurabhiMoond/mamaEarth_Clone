@@ -1,21 +1,18 @@
 import { useState } from "react";
-import { Link, NavLink} from "react-router-dom";
-import { useFetchData } from "../customHook/useFatchData";
-import { jsonUrls } from "../allJsonUrl/jsonUrls";
-
+import { Link, NavLink } from "react-router-dom";
 
 export const NavIteam = () => {
   const [selectedOption, setSelectedOption] = useState(null);
-  
+
   const links = [
-    { to: "/", label: "HOME"},
-    { to: "/face", label: "FACE"},
-    { to: "/hair", label: "HAIR"},
-    { to: "/makeup", label: "MAKEUP"},
-    { to: "/body", label: "BODY"},
-    { to: "/combo", label: "COMBO"},
-    { to: "/newlaunch", label: "NEW LAUNCH"},
-    { to: "/storelocator", label: "STORE LOCATOR"},
+    { to: "/", label: "HOME" },
+    { to: "/face", label: "FACE" },
+    { to: "/hair", label: "HAIR" },
+    { to: "/makeup", label: "MAKEUP" },
+    { to: "/body", label: "BODY" },
+    { to: "/combo", label: "COMBO" },
+    { to: "/newlaunch", label: "NEW LAUNCH" },
+    { to: "/storelocator", label: "STORE LOCATOR" },
   ];
 
   const handleOptionHover = (option) => {
@@ -52,7 +49,9 @@ export const NavIteam = () => {
                         >
                           Explore
                         </p>
-                        <Link to={'/face-new-launch'}><p>New Launches</p></Link>
+                        <Link to={"/face-new-launch"}>
+                          <p>New Launches</p>
+                        </Link>
                         <p>Best Sellers</p>
                         <p>Gift Packs</p>
                       </div>

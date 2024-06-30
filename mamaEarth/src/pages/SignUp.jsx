@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { jsonUrls } from "../allJsonUrl/jsonUrls";
-import { Button } from "@chakra-ui/react";
+import { Box, Button, Flex, FormControl, FormLabel, Input, Radio, RadioGroup, Stack } from "@chakra-ui/react";
+import { IoCloseSharp } from "react-icons/io5";
 
 export const Signup = () => {
   const [name, setName] = useState("");
@@ -44,95 +45,74 @@ export const Signup = () => {
   };
 
   return (
-    <div
-      style={{ width: "400px", height: "600px", backgroundColor: "#f0f0ef" }}
-    >
-      {close && (
-        <Link to="/">
-          <p onClick={() => setClose(false)}> X </p>
-        </Link>
-      )}
-      <h2>Signup for the Goodness Inside</h2>
-      {errorMessage && <div className="error">{errorMessage}</div>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Name <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>
-            Email ID <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Gender</label>
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="Male"
-                checked={gender === "Male"}
-                onChange={(e) => setGender(e.target.value)}
-              />
-              Male
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="Female"
-                checked={gender === "Female"}
-                onChange={(e) => setGender(e.target.value)}
-              />
-              Female
-            </label>
-            <label>
-              <input
-                type="radio"
-                value="Not Specified"
-                checked={gender === "Not Specified"}
-                onChange={(e) => setGender(e.target.value)}
-              />
-              Not Specified
-            </label>
-          </div>
-        </div>
-        <div>
-          <label>Date of Birth</label>
-          <input
-            type="date"
-            value={dateOfBirth}
-            onChange={(e) => setDateOfBirth(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>
-            Set Password <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="text"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit" className="allBtn">
-          Sign Up
-        </button>
-      </form>
-    </div>
+    <Flex height="100vh" alignItems="center" justifyContent="center">
+      <Box
+        p={8}
+        maxWidth="600px"
+        borderWidth={1}
+        borderRadius={8}
+        boxShadow="lg"
+      >
+        {close && (
+          <Link to="/">
+            <IoCloseSharp
+              onClick={() => setClose(false)}
+              style={{ margin: "0 0  0 90%" }}
+            />{" "}
+          </Link>
+        )}{" "}
+        <p style={{ color: "#94c642", fontWeight: "bolder" }}>
+          Signup for the Goodness Inside
+        </p>
+        {errorMessage && <div className="error">{errorMessage}</div>}
+        <form onSubmit={handleSubmit}>
+          <FormControl isRequired mb={2}>
+            <FormLabel>Name </FormLabel>
+            <Input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </FormControl>
+          <FormControl isRequired mb={2}>
+            <FormLabel>Email </FormLabel>
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </FormControl>
+          <FormControl isRequired mb={2}>
+            <FormLabel>Gender</FormLabel>
+            <RadioGroup onChange={setGender} value={gender}>
+              <Stack direction="row">
+                <Radio value="Male">Male</Radio>
+                <Radio value="Female">Female</Radio>
+                <Radio value="Other">Other</Radio>
+              </Stack>
+            </RadioGroup>
+          </FormControl>
+          <FormControl mb={4}>
+            <FormLabel>DOB </FormLabel>
+            <Input
+              type="date"
+              value={dateOfBirth}
+              onChange={(e) => setDateOfBirth(e.target.value)}
+            />
+          </FormControl>
+          <FormControl isRequired mb={2}>
+            <FormLabel>Password </FormLabel>
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </FormControl>
+          <Button type="submit" className="allBtn" width="400px" color="#94c642">
+            Sign Up
+          </Button>
+        </form>
+      </Box>
+    </Flex>
   );
 };
