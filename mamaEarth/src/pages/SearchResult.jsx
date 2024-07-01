@@ -1,12 +1,14 @@
 import { Box, Button, Flex, Grid, Text } from "@chakra-ui/react";
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { SearchContext } from "../context/searchContext";
 import { FaIndianRupeeSign, FaTags } from "react-icons/fa6";
 import { IoIosStar } from "react-icons/io";
 import { VscVerifiedFilled } from "react-icons/vsc";
+import { CartContext } from "../context/CartContext";
 
 export const SearchResult = () => {
   const { searchResults } = useContext(SearchContext);
+  const { addToCart } = useContext(CartContext);
   return (
     <div>
       {searchResults.length > 0 ? (

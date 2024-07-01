@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Text, Flex, Icon, Button } from "@chakra-ui/react";
+import { Box, Heading, Text, Flex, Icon, Button, AspectRatio } from "@chakra-ui/react";
 import { FaMapMarkerAlt, FaClock, FaEnvelope, FaPhone } from "react-icons/fa";
 import { MdDirections } from "react-icons/md";
 
@@ -40,7 +40,7 @@ const AddressCard = ({ title, address, hours, email, phone }) => (
 );
 
 export const StoreLocator = () => (
-  <Flex maxWidth={"80%"} marginLeft={"10%"} >
+  <Flex maxWidth={"80%"} marginLeft={"10%"}>
     <Box flex="1" p={4}>
       <AddressCard
         title="Shipra Mall"
@@ -56,12 +56,19 @@ export const StoreLocator = () => (
         email="del.dlfavenue@mamaearth.in"
       />
     </Box>
-    <Box flex="1" p={4}>
-      <img
+    <Box
+      flex="1"
+      p={4}
+      style={{ width: "100%", height: "90%", marginTop: "7%" }}
+    >
+      {/* <img
         src="https://images.livemint.com/rf/Image-621x414/LiveMint/Period1/2015/11/20/Photos/googlemaps-kltG--621x414@LiveMint.jpg"
         alt="Map"
         style={{ width: "100%",height: "90%", marginTop:"7%"}}
-      />
+      /> */}
+      <AspectRatio ratio={16 / 9}>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng" />
+      </AspectRatio>
     </Box>
   </Flex>
 );

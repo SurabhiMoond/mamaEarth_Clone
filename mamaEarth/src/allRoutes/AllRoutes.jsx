@@ -26,12 +26,9 @@ export const AllRoutes = () => {
     { to: "/newlaunch", element: <NewLaunch /> },
     { to: "/cart", element: <Cart /> },
     { to: "/login", element: <Login /> },
-    { to: "/dash", element: <Dashboard/> },
+    { to: "/dash", element: <Dashboard /> },
     { to: "/sign", element: <Signup /> },
-    {
-      to: "/storelocator",
-      element: <StoreLocator />,
-    },
+    {to: "/storelocator", element: <StoreLocator />},
   ];
   return (
     <div>
