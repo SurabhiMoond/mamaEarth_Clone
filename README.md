@@ -13,9 +13,9 @@ This project is a clone of the MamaEarth website, built using React.js, Chakra U
 
 ## Features
 
-- Responsive design
 - User authentication
 - Product search
+- Product sort
 - Shopping cart
 - Dashboard with charts
 
