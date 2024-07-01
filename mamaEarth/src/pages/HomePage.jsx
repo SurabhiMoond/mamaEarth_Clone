@@ -2,7 +2,7 @@ import { Box, Button, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { useFetchData } from "../customHook/useFatchData";
 import { jsonUrls } from "../allJsonUrl/jsonUrls";
 import { CartContext } from "../context/CartContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { IoIosStar } from "react-icons/io";
 import { FaIndianRupeeSign } from "react-icons/fa6";
@@ -14,10 +14,11 @@ export const HomePage = () => {
     loading: productsLoading,
     error: productsError,
   } = useFetchData(jsonUrls.products);
-
   const { addToCart } = useContext(CartContext);
   const loading = productsLoading;
   const error = productsError;
+
+  const [sortOrder, setSortOrder] = useState("asc");
 
   if (loading) {
     return (
@@ -34,22 +35,19 @@ export const HomePage = () => {
       </Flex>
     );
   }
+
   const skinCareProducts = products.filter(
     (product) => product.category && product.category.includes("Skin")
   );
-
   const faceCareProducts = products.filter(
     (product) => product.category && product.category.includes("Face")
   );
-
   const hairCareProducts = products.filter(
     (product) => product.category && product.category.includes("Hair")
   );
-
   const bodyCareProducts = products.filter(
     (product) => product.category && product.category.includes("Body")
   );
-
   const bestSellers = products.filter(
     (product) => product.sellerTag === "BEST SELLER"
   );
@@ -60,8 +58,67 @@ export const HomePage = () => {
     (product) => product.sellerTag === "MUST TRY"
   );
 
+  const sortProductsByPrice = (products, order) => {
+    return products.slice().sort((a, b) => {
+      if (order === "asc") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+  };
+
+  const sortedSkinCareProducts = sortProductsByPrice(
+    skinCareProducts,
+    sortOrder
+  );
+  const sortedFaceCareProducts = sortProductsByPrice(
+    faceCareProducts,
+    sortOrder
+  );
+  const sortedHairCareProducts = sortProductsByPrice(
+    hairCareProducts,
+    sortOrder
+  );
+  const sortedBodyCareProducts = sortProductsByPrice(
+    bodyCareProducts,
+    sortOrder
+  );
+  const sortedMustTries = sortProductsByPrice(mustTries, sortOrder);
+
   return (
     <div className="home-product-div">
+      <Flex justifyContent="flex-end" mt={"0"} mb={"-30px"}>
+        <Heading size={"10px"} style={{ marginTop: "10px" }}>
+          Sort by Price: &nbsp;{" "}
+        </Heading>
+        <Button
+          background={"#00aeef"}
+          color={"#ffffff"}
+          _hover={{
+            color: "#00aeef",
+            border: "1px solid #00aeef",
+            background: "#f7f7fa",
+          }}
+          onClick={() => setSortOrder("asc")}
+        >
+          Low to High
+        </Button>
+        <Button
+          background={"#00aeef"}
+          color={"#ffffff"}
+          _hover={{
+            color: "#00aeef",
+            border: "1px solid #00aeef",
+            background: "#f7f7fa",
+          }}
+          onClick={() => setSortOrder("desc")}
+          ml="2"
+        >
+          High to Low
+        </Button>
+      </Flex>
+
       {/* Skin Care Products */}
       <div className="product-title-div">
         <Heading as="h4" mb="4">
@@ -79,7 +136,7 @@ export const HomePage = () => {
         mt={"0"}
         marginLeft={"8%"}
       >
-        {skinCareProducts.map((product) => (
+        {sortedSkinCareProducts.map((product) => (
           <Box key={product.id} className="product-card">
             <div
               className="tag-div"
@@ -99,7 +156,6 @@ export const HomePage = () => {
               alt={product.name}
               style={{ width: "100%", height: "300px" }}
             />
-
             <div className="card-textarea-mainDiv">
               <div className="card-text-area">
                 <Text ml="1" fontSize="sm">
@@ -118,7 +174,6 @@ export const HomePage = () => {
                   <h1>{product.name}</h1>
                   <p> {product.shortDesc}</p>
                 </div>
-
                 <Flex justifyContent={"center"} alignItems={"center"}>
                   <FaIndianRupeeSign fontSize={"20px"} />
                   {product.price}
@@ -131,7 +186,6 @@ export const HomePage = () => {
           </Box>
         ))}
       </Grid>
-
       {/* Face Care Products */}
       <div className="product-title-div">
         <Heading as="h4" mb="4">
@@ -149,7 +203,7 @@ export const HomePage = () => {
         mt={"0"}
         marginLeft={"8%"}
       >
-        {faceCareProducts.map((product) => (
+        {sortedFaceCareProducts.map((product) => (
           <Box key={product.id} className="product-card">
             <div
               className="tag-div"
@@ -219,7 +273,7 @@ export const HomePage = () => {
         mt={"0"}
         marginLeft={"8%"}
       >
-        {hairCareProducts.map((product) => (
+        {sortedHairCareProducts.map((product) => (
           <Box key={product.id} className="product-card">
             <div
               className="tag-div"
@@ -289,7 +343,7 @@ export const HomePage = () => {
         mt={"0"}
         marginLeft={"8%"}
       >
-        {bodyCareProducts.map((product) => (
+        {sortedBodyCareProducts.map((product) => (
           <Box key={product.id} className="product-card">
             <div
               className="tag-div"
@@ -359,7 +413,7 @@ export const HomePage = () => {
         mt={"0"}
         marginLeft={"8%"}
       >
-        {mustTries.map((product) => (
+        {sortedMustTries.map((product) => (
           <Box key={product.id} className="product-card">
             <div
               className="tag-div"

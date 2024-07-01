@@ -99,8 +99,8 @@ const { cart } = useContext(CartContext);
               backgroundColor="#00aeef"
               borderRadius="50%"
               align={"center"}
-              width={"20px"}
-              height={"20px"}
+              width={"28px"}
+              height={"28px"}
               marginLeft="-8px"
               marginTop="-8px"
             >
