@@ -10,6 +10,7 @@ This project is a clone of the MamaEarth website, built using React.js, Chakra U
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
+- [Some Clone page Snippet](#snippet)
 
 ## Features
 
