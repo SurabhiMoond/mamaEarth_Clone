@@ -1,18 +1,10 @@
 {
-  "name": "api",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "postinstall": "chmod +x ./node_modules/.bin/*",
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": { "start": "json-server --watch db.json --port 3000" },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "json-server": "^1.0.0-beta.1"
-  }
+  "license": "ISC"
 }
