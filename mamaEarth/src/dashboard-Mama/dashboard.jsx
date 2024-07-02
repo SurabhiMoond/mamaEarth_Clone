@@ -17,7 +17,7 @@ export const Dashboard = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/products");
+      const response = await axios.get("https://mama-earth-clone.onrender.com/products");
       setProducts(response.data);
     } catch (error) {
       console.error(error);
@@ -26,7 +26,7 @@ export const Dashboard = () => {
 
   const addProduct = async (product) => {
     try {
-      await axios.post("http://localhost:3000/products", product);
+      await axios.post("https://mama-earth-clone.onrender.com/products", product);
       fetchProducts();
       setSelectedProduct(null);
       setEditing(false);
@@ -37,7 +37,7 @@ export const Dashboard = () => {
 
   const updateProduct = async (id, updatedProduct) => {
     try {
-      await axios.put(`http://localhost:3000/products/${id}`, updatedProduct);
+      await axios.put(`https://mama-earth-clone.onrender.com/products/${id}`, updatedProduct);
       fetchProducts();
       setSelectedProduct(null);
       setEditing(false);
@@ -48,7 +48,7 @@ export const Dashboard = () => {
 
   const deleteProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/products/${id}`);
+      await axios.delete(`https://mama-earth-clone.onrender.com/products/${id}`);
       fetchProducts();
     } catch (error) {
       console.error(error);
