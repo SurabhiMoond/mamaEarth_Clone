@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
  "scripts": {
-  "start": "npx json-server --watch db.json --port 3000"
+  "start": "node index.js"
 },
   "keywords": [],
   "author": "",
