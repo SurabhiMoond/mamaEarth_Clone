@@ -1,4 +1,4 @@
 export const jsonUrls = {
-  products: "http://localhost:3000/products",
-  roles: "http://localhost:3000/roles",
+  products: "https://mama-earth-clone.onrender.com/products",
+  roles: "https://mama-earth-clone.onrender.com/roles",
 };
