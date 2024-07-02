@@ -75,7 +75,7 @@ export const Footer = () => {
       <Box mt="20px">
         <Flex
           style={{
-            fontSize: "40px",
+            fontSize: "30px",
             gap: "10px",
             alignItems: "center",
             justifyContent: "center",

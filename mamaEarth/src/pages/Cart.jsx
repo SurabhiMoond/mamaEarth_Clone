@@ -106,7 +106,7 @@ export const Cart = () => {
               </Flex>
             ))}
           </Box>
-          <Box width="30%" p={4} position="fixed" ml={"55%"}>
+          <Box width="30%" p={4} position="fixed" ml={"55%"}  >
             <Heading size="md">Price Summary</Heading>
             <Flex justify="space-between" mt={4}>
               <Text>Order Total</Text>
