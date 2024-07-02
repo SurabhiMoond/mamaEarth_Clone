@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "./node_modules/.bin/json-server --watch db.json --port 3000",
+    "postinstall": "chmod +x ./node_modules/.bin/json-server",
+    "start": "node node_modules/json-server/lib/cli/bin.js --watch db.json --port 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
