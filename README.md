@@ -4,6 +4,9 @@ This project is a clone of the MamaEarth website, built using React.js, Chakra U
 
 ## ⭐⭐Important 
 To view the full functionality of my MamaEarth project, please start by logging in. This will trigger the server to start, ensuring everything works as expected.
+# login 
+- Email : admin@example.com
+- Password : admin
 ## Table of Contents
 
 - [Features](#features)
