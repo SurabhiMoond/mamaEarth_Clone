@@ -2,6 +2,8 @@
 
 This project is a clone of the MamaEarth website, built using React.js, Chakra UI, and React Chart.js, and created with Vite.
 
+## ⭐⭐Important 
+To view the full functionality of my MamaEarth project, please start by logging in. This will trigger the server to start, ensuring everything works as expected.
 ## Table of Contents
 
 - [Features](#features)
