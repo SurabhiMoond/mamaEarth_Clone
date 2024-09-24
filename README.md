@@ -61,6 +61,8 @@ This project is a clone of the MamaEarth website, built using React.js, Chakra U
 
 
 ## DashBoard
-
+# login 
+- Email : admin@example.com
+- Password : admin
 ![image](https://github.com/SurabhiMoond/mamaEarth_Clone/assets/154314470/29a3c4ff-444d-4c9b-afdd-bbb9e0abb069)
 
