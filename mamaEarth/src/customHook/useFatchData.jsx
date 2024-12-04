@@ -24,4 +24,3 @@ export const useFetchData = (jsonFilePath) => {
 
   return { data, loading, error };
 };
-
